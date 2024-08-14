@@ -6,12 +6,20 @@ public class InteractableObject : MonoBehaviour
 {   
     public bool playerInRange;
 
-    void Update()
+    protected virtual void Update()
     {
+        
         if(Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.Instance.OnTarget)
         {
-            Destroy(gameObject);
+            Debug.Log("am i here?");
+            onHit();
         }
+    }
+
+    public virtual void onHit()
+    {
+        //add functionality
+
     }
 
     private void OnTriggerEnter(Collider other){
